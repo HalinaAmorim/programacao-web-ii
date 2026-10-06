@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lista 01 — Programação Web II</title>
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.5;
+        max-width: 40rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        color: #1c1917;
+        background: #faf7f2;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.4rem;
+      }
+
+      a {
+        color: #9a3412;
+      }
+
+      li {
+        margin: 0.35rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista 01 — Introdução ao JavaScript</h1>
+    <p>
+      Programação Web II — Halina Amorim. Escolha uma questão para executá-la
+      no navegador.
+    </p>
+    <ul>
+      <li><a href="?script=questao-2-a.js">Questão 2-a — real para dólar</a></li>
+      <li><a href="?script=questao-2-b.js">Questão 2-b — perímetro do círculo</a></li>
+      <li><a href="?script=questao-2-c.js">Questão 2-c — nota final</a></li>
+      <li><a href="?script=questao-2-d.js">Questão 2-d — soma dos primos</a></li>
+      <li><a href="?script=questao-3-a.js">Questão 3-a — operação por caractere</a></li>
+      <li><a href="?script=questao-3-b.js">Questão 3-b — produtório</a></li>
+      <li><a href="?script=questao-3-c.js">Questão 3-c — fatorial recursivo</a></li>
+      <li><a href="?script=questao-3-d.js">Questão 3-d — números ímpares</a></li>
+      <li><a href="?script=questao-3-e.js">Questão 3-e — total com desconto</a></li>
+      <li><a href="?script=questao-3-f.js">Questão 3-f — conta bancária</a></li>
+    </ul>
+    <script>
+      const script = new URLSearchParams(location.search).get("script");
+
+      if (script && /^questao-\d-[a-z]\.js$/.test(script)) {
+        const elemento = document.createElement("script");
+        elemento.src = script;
+        document.body.appendChild(elemento);
+      }
+    </script>
+  </body>
+</html>
