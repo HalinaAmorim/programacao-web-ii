@@ -19,3 +19,9 @@ A verificação ocorre em tempo de compilação, em uma etapa de análise estát
 Em performance, a verificação antecipada permite que o compilador escolha a representação dos dados e emita a operação correta já na compilação. Checagens que uma linguagem dinâmica repetiria a cada instrução podem ser feitas uma única vez, ou eliminadas. O código gerado tende a ser mais direto.
 
 Em segurança, muitos usos indevidos de dados são apontados antes da execução. Isso reduz falhas em produção, deixa explícito o contrato de cada função e torna uma refatoração mais segura: uma alteração incompatível aparece no verificador de tipos, em vez de surgir somente quando aquele trecho roda.
+
+### c) Tipagem dinâmica
+
+Na tipagem dinâmica, o tipo está no valor, não na variável. A mesma variável pode guardar um número e, mais adiante, um texto ou um objeto. A linguagem só decide se uma operação é válida no momento em que ela executa: o interpretador observa os tipos daqueles valores e, se a operação não fizer sentido, interrompe o programa com um erro de execução.
+
+O custo de performance vem dessa descoberta tardia. A cada operação, o ambiente pode precisar identificar os tipos, escolher a versão correta da operação e manter informação extra junto dos valores. Engines modernas, como a V8 do JavaScript, reduzem esse custo com compilação sob demanda e caches de tipo. Esses atalhos se desfazem quando uma mesma variável passa a receber valores de tipos diferentes: o trecho deixa o código otimizado e volta a um caminho mais lento.
