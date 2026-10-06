@@ -33,3 +33,9 @@ Tipagem forte e tipagem fraca não indicam quando o tipo é verificado. Elas ind
 Na tipagem forte, tipos incompatíveis não são convertidos por conta própria. Somar um texto e um número produz erro, a menos que o programa faça a conversão de forma explícita.
 
 Na tipagem fraca, a linguagem aplica coerção e tenta converter os operandos para concluir a operação. Em JavaScript, `"5" + 1` produz `"51"`, porque `+` com texto concatena, e `"5" - 1` produz `4`, porque `-` converte o texto em número. O programa não falha, mas o resultado depende de regras de conversão que nem sempre são evidentes.
+
+### e) Linguagens híbridas e inferência de tipos
+
+Linguagens híbridas, também chamadas de tipagem gradual, combinam os dois modelos. Parte do código é verificada estaticamente e parte continua dinâmica. TypeScript faz isso sobre o JavaScript: os tipos são conferidos na compilação e o arquivo gerado continua sendo JavaScript, executado de forma dinâmica. C# oferece um mecanismo semelhante com o tipo `dynamic`, cuja verificação fica para a execução.
+
+A inferência de tipos permite que uma linguagem estática descubra o tipo de uma expressão sem que ele seja escrito pelo programador. Em `const total = n1 * 2 + n2 * 3`, o compilador observa os operandos e conclui que `total` é numérico. A verificação continua ocorrendo antes da execução. A inferência evita anotações repetidas e enxuga o código, sem abrir mão da checagem estática.
