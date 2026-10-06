@@ -39,3 +39,11 @@ Na tipagem fraca, a linguagem aplica coerção e tenta converter os operandos pa
 Linguagens híbridas, também chamadas de tipagem gradual, combinam os dois modelos. Parte do código é verificada estaticamente e parte continua dinâmica. TypeScript faz isso sobre o JavaScript: os tipos são conferidos na compilação e o arquivo gerado continua sendo JavaScript, executado de forma dinâmica. C# oferece um mecanismo semelhante com o tipo `dynamic`, cuja verificação fica para a execução.
 
 A inferência de tipos permite que uma linguagem estática descubra o tipo de uma expressão sem que ele seja escrito pelo programador. Em `const total = n1 * 2 + n2 * 3`, o compilador observa os operandos e conclui que `total` é numérico. A verificação continua ocorrendo antes da execução. A inferência evita anotações repetidas e enxuga o código, sem abrir mão da checagem estática.
+
+### f) Tipagem em JavaScript
+
+JavaScript é uma linguagem de tipagem dinâmica e fraca. Variáveis criadas com `var`, `let` ou `const` não têm tipo declarado. O tipo pertence ao valor armazenado, e a mesma variável pode receber outro valor, de outro tipo, ao longo da execução.
+
+A verificação ocorre em tempo de execução. Certas operações inválidas só geram `TypeError` quando a linha é executada, como ler uma propriedade de `null`. Em vários outros casos não há erro: a linguagem converte os valores. Além de `"5" + 1` resultar em `"51"` e `"5" - 1` resultar em `4`, a expressão `true + 1` resulta em `2`. O operador `===` compara valor e tipo, sem coerção, e é a comparação adequada quando a conversão automática muda o sentido do código.
+
+Os tipos primitivos são `number`, `string`, `boolean`, `undefined`, `null`, `bigint` e `symbol`. Os demais valores são objetos. Para obter checagem estática nesse ecossistema, o caminho usual é o TypeScript, que acrescenta tipos e inferência durante o desenvolvimento e gera JavaScript executável no navegador.
